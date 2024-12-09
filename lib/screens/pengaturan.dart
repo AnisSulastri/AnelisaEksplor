@@ -16,7 +16,7 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pengaturan'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green[200],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -74,28 +74,6 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
                     _selectedLanguage = newLanguage;
                   });
                 }
-              },
-            ),
-
-            const Divider(),
-
-            // Pengaturan Akun
-            ListTile(
-              title: const Text('Akun'),
-              onTap: () {
-                // Aksi untuk mengedit akun, misalnya menuju halaman pengaturan akun
-                print('Pengaturan akun ditekan');
-              },
-            ),
-
-            const Divider(),
-
-            // Log out
-            ListTile(
-              title: const Text('Keluar'),
-              onTap: () {
-                // Aksi keluar dari aplikasi
-                print('Pengguna keluar');
               },
             ),
           ],
