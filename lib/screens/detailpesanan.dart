@@ -1,4 +1,5 @@
 import 'package:anelisaeksplor/models/destination_model.dart';
+import 'package:anelisaeksplor/screens/pembayaran.dart';
 import 'package:flutter/material.dart'; // Import model destination
 
 class Detailpesanan extends StatefulWidget {
@@ -167,9 +168,18 @@ class _DetailpesananState extends State<Detailpesanan> {
             // Tombol Buat Pesanan
             ElevatedButton(
               onPressed: () {
+                // Tampilkan SnackBar
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text("Pesanan berhasil dibuat!")),
                 );
+
+                // Navigasi ke halaman pembayaran setelah SnackBar ditampilkan
+                Future.delayed(Duration(milliseconds: 500), () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Pembayaran()),
+                  );
+                });
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,

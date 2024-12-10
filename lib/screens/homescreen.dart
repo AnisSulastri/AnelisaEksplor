@@ -1,6 +1,5 @@
 import 'package:anelisaeksplor/screens/pengaturan.dart';
 import 'package:anelisaeksplor/screens/rekomendasiscreen.dart';
-import 'package:anelisaeksplor/screens/ulasanscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:anelisaeksplor/screens/jelajahscreen.dart';
 import 'package:anelisaeksplor/models/destination_model.dart';
@@ -118,27 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => RekomendasiScreen(),
-                  ),
-                );
-              },
-            ),
-
-            // Item Ulasan
-            ListTile(
-              leading: const Icon(
-                Icons.star_rate_rounded,
-                color: Colors.white,
-                size: 30.0, // Ukuran ikon lebih besar
-              ),
-              title: const Text(
-                'Ulasan',
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UlasanScreen(),
                   ),
                 );
               },
