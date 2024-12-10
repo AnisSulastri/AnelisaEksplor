@@ -1,6 +1,8 @@
+import 'package:anelisaeksplor/screens/detailfav.dart';
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/jelajahscreen.dart';
-import 'package:anelisaeksplor/models/fav_model.dart';
+import 'package:anelisaeksplor/screens/jelajahscreen.dart'; // Impor untuk navigasi ke halaman Jelajahscreen
+import 'package:anelisaeksplor/models/fav_model.dart'; // Impor model untuk destinasi favorit
+// Impor DetailFavScreen
 
 class Favoritscreen extends StatefulWidget {
   const Favoritscreen({Key? key}) : super(key: key);
@@ -10,66 +12,48 @@ class Favoritscreen extends StatefulWidget {
 }
 
 class _FavoritscreenState extends State<Favoritscreen> {
-  // Controller untuk scroll view
   final ScrollController _scrollController = ScrollController();
-
-  // Menyimpan favorit yang dipilih
-  List<TravelDestination> favoriteDestinations = [];
-
-  @override
-  void initState() {
-    super.initState();
-    // Menambahkan beberapa destinasi favorit
-    favoriteDestinations =
-        listDestination.sublist(0, 2); // Contoh dua destinasi favorit
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Tidak ada tombol back di kiri
+        automaticallyImplyLeading: false,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Kembali ke halaman sebelumnya
+            Navigator.pop(context);
           },
         ),
         title: const Center(
           child: Text(
-            'Favorit', // Teks Favorit akan berada di tengah
-            style: TextStyle(
-              fontSize: 20, // Ukuran teks
-              color: Colors.black, // Warna teks
-            ),
+            'Favorit',
+            style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         ),
         actions: [
-          // Tombol tambah ikon
           IconButton(
-            icon: const Icon(Icons.add,
-                color: Colors.black), // Mengubah ikon menjadi tambah biasa
+            icon: const Icon(Icons.add, color: Colors.black),
             onPressed: () {
               // Aksi untuk menambah favorit
             },
           ),
         ],
-        backgroundColor: Colors.white, // Warna background appBar
+        backgroundColor: Colors.white,
       ),
       body: Stack(
         children: [
-          // GridView untuk menampilkan gambar destinasi favorit dengan 2 kolom
           GridView.builder(
             controller: _scrollController,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // Menampilkan 2 kolom
-              crossAxisSpacing: 10, // Spasi horizontal antar gambar
-              mainAxisSpacing: 10, // Spasi vertikal antar gambar
-              childAspectRatio: 1, // Rasio gambar agar terlihat proporsional
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: 1,
             ),
-            itemCount: favoriteDestinations.length,
+            itemCount: listDestination.length,
             itemBuilder: (context, index) {
-              final destination = favoriteDestinations[index];
+              final destination = listDestination[index];
 
               return Card(
                 elevation: 5,
@@ -78,17 +62,27 @@ class _FavoritscreenState extends State<Favoritscreen> {
                 ),
                 child: Stack(
                   children: [
-                    // Gambar destinasi dengan love icon dalam gambar
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        destination.image?.first ?? "assets/default.jpg",
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 200, // Ukuran gambar lebih besar
+                    GestureDetector(
+                      onTap: () {
+                        // Navigasi ke detail saat gambar diklik
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Detailfav(destination: destination),
+                          ),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          destination.image?.first ?? "assets/default.jpg",
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 200,
+                        ),
                       ),
                     ),
-                    // Ikon love di dalam gambar
                     Positioned(
                       top: 10,
                       right: 10,
@@ -107,14 +101,12 @@ class _FavoritscreenState extends State<Favoritscreen> {
               );
             },
           ),
-          // Tombol "Jelajahi Curug Lain" di bawah layar
           Positioned(
             bottom: 20,
             left: 20,
             right: 20,
             child: ElevatedButton(
               onPressed: () {
-                // Aksi ketika tombol Jelajahi Curug Lain ditekan
                 Navigator.push(
                   context,
                   MaterialPageRoute(

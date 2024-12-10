@@ -72,6 +72,8 @@ flutter:
     - assets/luhur.jpg
     - assets/ngebul.jpg
     - assets/walanda.jpg
+    - assets/tiket_pesan.png
+    - assets/tikett.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -118,26 +118,34 @@ class _LoginState extends State<Login> {
                                   // Check username and password
                                   if (_usernameController.text.isNotEmpty &&
                                       _passwordController.text.isNotEmpty) {
-                                    // Show success message for 1 second
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Login Successful'),
-                                        backgroundColor: Colors.green,
-                                      ),
+                                    // Show success pop-up
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: const Text("Login Successful"),
+                                          content: const Text(
+                                              "You have logged in successfully!"),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text("OK"),
+                                              onPressed: () {
+                                                // Close the dialog
+                                                Navigator.of(context).pop();
+                                                // Navigate to next screen
+                                                Navigator.pushReplacement(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const Navigationscreen(), // Halaman tujuan
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
                                     );
-
-                                    // Wait for 1 second before navigating
-                                    Future.delayed(const Duration(seconds: 1),
-                                        () {
-                                      // If credentials are valid, navigate to NavigationScreen
-                                      Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Navigationscreen(), // Halaman tujuan
-                                        ),
-                                      );
-                                    });
                                   } else {
                                     // Show error message if credentials are empty
                                     setState(() {

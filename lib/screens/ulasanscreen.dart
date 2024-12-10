@@ -7,6 +7,13 @@ class UlasanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context); // Navigasi kembali
+          },
+        ),
         title: const Text('Ulasan Destinasi'),
         backgroundColor: Colors.green[200],
       ),

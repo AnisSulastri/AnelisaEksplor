@@ -1,11 +1,11 @@
-import 'package:anelisaeksplor/models/rekomendasi_model.dart';
-import 'package:anelisaeksplor/screens/rekomendasipesan.dart';
+import 'package:anelisaeksplor/screens/jelajahpesan.dart';
 import 'package:flutter/material.dart';
+import 'package:anelisaeksplor/models/jelajah_model.dart';
 
-class Detailrekomendasi extends StatelessWidget {
-  final RekomendasiModel destination;
+class Detailjelajah extends StatelessWidget {
+  final Jelajahlist destination;
 
-  Detailrekomendasi({required this.destination});
+  const Detailjelajah({Key? key, required this.destination}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +23,6 @@ class Detailrekomendasi extends StatelessWidget {
               ),
             ),
           ),
-          // Gradient Overlay
-          // Container(
-          //   height:
-          //       MediaQuery.of(context).size.height * 0.8, // 40% height gradient
-          //   decoration: BoxDecoration(
-          //     gradient: LinearGradient(
-          //       begin: Alignment.topCenter,
-          //       end: Alignment.bottomCenter,
-          //       colors: [
-          //         Colors.black.withOpacity(0.3),
-          //         Colors.black.withOpacity(0.6),
-          //       ],
-          //     ),
-          //   ),
-          // ),
           // Content
           Align(
             alignment: Alignment.bottomCenter,
@@ -51,7 +36,6 @@ class Detailrekomendasi extends StatelessWidget {
               ),
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -90,11 +74,11 @@ class Detailrekomendasi extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            // Navigasi ke halaman DetailPesanan dengan destinasi yang dipilih
+                            // Navigasi ke halaman DetailPesanan
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Rekomendasipesan(
+                                builder: (context) => Jelajahpesan(
                                   destination:
                                       destination, // Pass the selected destination
                                 ),
@@ -128,7 +112,7 @@ class Detailrekomendasi extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.black.withOpacity(0.5),
               child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 onPressed: () {
                   Navigator.pop(context);
                 },

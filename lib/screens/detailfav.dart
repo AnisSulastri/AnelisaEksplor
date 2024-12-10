@@ -1,11 +1,11 @@
-import 'package:anelisaeksplor/models/rekomendasi_model.dart';
-import 'package:anelisaeksplor/screens/rekomendasipesan.dart';
-import 'package:flutter/material.dart';
+import 'package:anelisaeksplor/models/fav_model.dart';
+import 'package:anelisaeksplor/screens/fav_pesan.dart';
+import 'package:flutter/material.dart'; // Pastikan untuk mengimport halaman DetailPesanan
 
-class Detailrekomendasi extends StatelessWidget {
-  final RekomendasiModel destination;
+class Detailfav extends StatelessWidget {
+  final FavModel destination;
 
-  Detailrekomendasi({required this.destination});
+  Detailfav({required this.destination});
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +23,6 @@ class Detailrekomendasi extends StatelessWidget {
               ),
             ),
           ),
-          // Gradient Overlay
-          // Container(
-          //   height:
-          //       MediaQuery.of(context).size.height * 0.8, // 40% height gradient
-          //   decoration: BoxDecoration(
-          //     gradient: LinearGradient(
-          //       begin: Alignment.topCenter,
-          //       end: Alignment.bottomCenter,
-          //       colors: [
-          //         Colors.black.withOpacity(0.3),
-          //         Colors.black.withOpacity(0.6),
-          //       ],
-          //     ),
-          //   ),
-          // ),
           // Content
           Align(
             alignment: Alignment.bottomCenter,
@@ -94,7 +79,7 @@ class Detailrekomendasi extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Rekomendasipesan(
+                                builder: (context) => FavPesan(
                                   destination:
                                       destination, // Pass the selected destination
                                 ),
@@ -128,7 +113,7 @@ class Detailrekomendasi extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.black.withOpacity(0.5),
               child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 onPressed: () {
                   Navigator.pop(context);
                 },

@@ -2,7 +2,7 @@ import 'dart:math';
 
 Random random = Random();
 const description =
-    'Tempat-tempat wisata menawarkan beragam pengalaman, masing-masing dengan pesona dan daya tarik yang unik. Dari lanskap alam yang memukau hingga landmark bersejarah, selalu ada sesuatu untuk setiap wisatawan. Wisata PesisirDestinasi seperti pantai tropis mengundang relaksasi dengan air yang jernih, sementara daerah pegunungan menawarkan jalur pendakian yang penuh petualangan dan pemandangan yang menakjubkan.';
+    'Wisata daerah yang menawarkan jalur pendakian yang penuh petualangan dan pemandangan yang menakjubkan. Curug-curug yang sangat indah';
 
 class TravelDestination {
   final int id, price, review;

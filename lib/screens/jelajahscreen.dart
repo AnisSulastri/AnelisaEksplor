@@ -1,15 +1,16 @@
 import 'package:anelisaeksplor/models/jelajah_model.dart';
 import 'package:flutter/material.dart';
+import 'package:anelisaeksplor/screens/detailjelajah.dart'; // Import Detailjelajah
 
 class Jelajahscreen extends StatelessWidget {
-  const Jelajahscreen({Key? key}) : super(key: key);
+  const Jelajahscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
             Navigator.pop(context); // Navigasi kembali
           },
@@ -19,7 +20,6 @@ class Jelajahscreen extends StatelessWidget {
           style: TextStyle(color: Colors.black), // Teks judul di tengah
         ),
         actions: [
-          // Menambahkan search bar tanpa Expanded
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: _buildSearchBar(),
@@ -48,19 +48,19 @@ class Jelajahscreen extends StatelessWidget {
             color: Colors.black.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3), // shadow position
+            offset: const Offset(0, 3),
           ),
         ],
       ),
-      child: TextField(
+      child: const TextField(
         decoration: InputDecoration(
           icon: Icon(
             Icons.search,
-            color: Colors.grey, // Ubah warna ikon pencarian
+            color: Colors.grey,
           ),
           border: InputBorder.none,
           hintText: 'Search',
-          hintStyle: TextStyle(color: Colors.grey), // Ubah warna hint text
+          hintStyle: TextStyle(color: Colors.grey),
         ),
       ),
     );
@@ -69,18 +69,28 @@ class Jelajahscreen extends StatelessWidget {
   // Membuat widget GridView untuk menampilkan daftar jelajah
   Widget _buildGridView() {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // Jumlah kolom
-        crossAxisSpacing: 8.0, // Spasi antar kolom
-        mainAxisSpacing: 10.0, // Spasi antar baris
-        childAspectRatio: 0.8, // Rasio gambar agar sesuai
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 10.0,
+        childAspectRatio: 0.8,
       ),
       itemCount:
-          listDestination.length, // Menggunakan panjang dari listDestination
+          listDestination.length, // Pastikan listDestination sudah terdefinisi
       itemBuilder: (context, index) {
-        final jelajah =
-            listDestination[index]; // Mengambil item dari listDestination
-        return _buildJelajahCard(jelajah);
+        final jelajah = listDestination[index];
+        return GestureDetector(
+          onTap: () {
+            // Navigasi ke halaman Detailjelajah
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Detailjelajah(destination: jelajah),
+              ),
+            );
+          },
+          child: _buildJelajahCard(jelajah),
+        );
       },
     );
   }
@@ -97,12 +107,14 @@ class Jelajahscreen extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            // Menampilkan gambar pertama dari list image
+            // Pastikan image tidak null
             Image.asset(
-              jelajah.image[0], // Menggunakan asset yang pertama
+              jelajah.image?.isNotEmpty == true
+                  ? jelajah.image![0]
+                  : 'default_image_path', // Menggunakan default image jika tidak ada
               fit: BoxFit.cover,
             ),
-            // Overlay dengan judul di atas gambar
+            // Overlay dengan judul di atas gambar atau elemen lainnya bisa ditambahkan di sini
           ],
         ),
       ),

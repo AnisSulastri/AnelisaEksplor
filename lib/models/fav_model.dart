@@ -5,13 +5,13 @@ Random random = Random();
 const description =
     'Tempat-tempat wisata menawarkan beragam pengalaman, masing-masing dengan pesona dan daya tarik yang unik. Dari lanskap alam yang memukau hingga landmark bersejarah, selalu ada sesuatu untuk setiap wisatawan. Wisata PesisirDestinasi seperti pantai tropis mengundang relaksasi dengan air yang jernih, sementara daerah pegunungan menawarkan jalur pendakian yang penuh petualangan dan pemandangan yang menakjubkan.';
 
-class TravelDestination {
+class FavModel {
   final int id, price, review;
   final List<String>? image;
   final String name, description, category, location;
   final double rate;
 
-  TravelDestination({
+  FavModel({
     required this.id,
     required this.name,
     required this.category,
@@ -24,8 +24,8 @@ class TravelDestination {
   });
 }
 
-List<TravelDestination> listDestination = [
-  TravelDestination(
+List<FavModel> listDestination = [
+  FavModel(
     id: 1,
     name: "Curug Cibeureum",
     category: 'popular',
@@ -36,7 +36,7 @@ List<TravelDestination> listDestination = [
     description: description,
     rate: 4.8,
   ),
-  TravelDestination(
+  FavModel(
     id: 2,
     name: "Curug Cikondang",
     category: 'popular',

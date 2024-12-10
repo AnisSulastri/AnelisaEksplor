@@ -2,7 +2,7 @@
     <application
         android:label="Anelisa Eksplor"
         android:name="${applicationName}"
-        android:icon="@mipmap/logo_mobile">
+        android:icon="@mipmap/logo_apk">
         <activity
             android:name=".MainActivity"
             android:exported="true"
