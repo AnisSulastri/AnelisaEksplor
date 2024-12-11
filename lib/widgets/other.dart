@@ -120,7 +120,7 @@ class Other extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: "Rp${destination.price}K",
+                      text: "Rp${destination.price}",
                       style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,

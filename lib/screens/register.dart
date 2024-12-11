@@ -12,9 +12,9 @@ class _RegisterState extends State<Register> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  String? _errorMessage; // Variabel untuk menampilkan pesan kesalahan
+  String? _errorMessage; // Variable for error message
 
-  // Fungsi untuk validasi email
+  // Function to validate email
   bool isValidEmail(String email) {
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     return emailRegex.hasMatch(email);
@@ -25,7 +25,7 @@ class _RegisterState extends State<Register> {
     final username = _usernameController.text.trim();
     final password = _passwordController.text.trim();
 
-    // Validasi input
+    // Validate input
     if (email.isEmpty || username.isEmpty || password.isEmpty) {
       setState(() {
         _errorMessage = 'All fields are required!';
@@ -40,12 +40,12 @@ class _RegisterState extends State<Register> {
       return;
     }
 
-    // Jika validasi berhasil
+    // If validation passes
     setState(() {
-      _errorMessage = null; // Hapus pesan kesalahan jika validasi lolos
+      _errorMessage = null; // Clear the error message if validation passes
     });
 
-    // Tampilkan dialog sukses
+    // Show success dialog
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -56,8 +56,8 @@ class _RegisterState extends State<Register> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pop(context); // Tutup dialog
-                Navigator.pushNamed(context, '/login'); // Navigasi ke login
+                Navigator.pop(context); // Close dialog
+                Navigator.pushNamed(context, '/login'); // Navigate to login
               },
               child: const Text('OK'),
             ),
@@ -73,7 +73,7 @@ class _RegisterState extends State<Register> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image with border radius
+          // Background image with rounded corners
           Positioned(
             top: 0,
             left: 0,
@@ -84,7 +84,7 @@ class _RegisterState extends State<Register> {
                 bottomRight: Radius.circular(25),
               ),
               child: Image.asset(
-                'assets/cikondang.jpg', // Path gambar latar
+                'assets/ciismun.jpg', // Background image path
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.height * 0.6,
               ),
@@ -96,12 +96,12 @@ class _RegisterState extends State<Register> {
             child: SingleChildScrollView(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 200), // Spacer for top area
+                    const SizedBox(height: 150), // Adjusted top spacer
 
                     // Form container
                     Align(
@@ -115,14 +115,14 @@ class _RegisterState extends State<Register> {
                           boxShadow: [
                             BoxShadow(
                               color: Colors.brown.withOpacity(0.5),
-                              blurRadius: 20,
+                              blurRadius: 15,
                               offset: const Offset(0, -2),
                             ),
                           ],
                         ),
                         child: Column(
                           children: [
-                            // Pesan kesalahan di atas form
+                            // Error message above form
                             if (_errorMessage != null)
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
@@ -149,7 +149,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15),
+                            const SizedBox(height: 15), // Adjusted space
 
                             // Username input field
                             TextFormField(
@@ -164,7 +164,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15),
+                            const SizedBox(height: 15), // Adjusted space
 
                             // Password input field
                             TextFormField(
@@ -180,7 +180,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 25),
+                            const SizedBox(height: 25), // Adjusted space
 
                             // Register button
                             SizedBox(
@@ -206,9 +206,9 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 10), // Adjusted space
 
-                            // "OR WITH" text
+                            // "Or With" text
                             const Text(
                               'Or With',
                               style: TextStyle(
@@ -216,7 +216,7 @@ class _RegisterState extends State<Register> {
                                 color: Colors.black,
                               ),
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 10), // Adjusted space
 
                             // Google icon button
                             IconButton(

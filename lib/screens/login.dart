@@ -11,7 +11,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String _errorMessage = ""; // Variable untuk menyimpan pesan error
+  String _errorMessage = ""; // Variable to store the error message
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image with border radius
+          // Background image with rounded corners
           Positioned(
             top: 0,
             left: 0,
@@ -30,9 +30,9 @@ class _LoginState extends State<Login> {
                 bottomRight: Radius.circular(25),
               ),
               child: Image.asset(
-                'assets/cikondang.jpg',
+                'assets/ciismun.jpg',
                 fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.5,
               ),
             ),
           ),
@@ -42,31 +42,31 @@ class _LoginState extends State<Login> {
             child: SingleChildScrollView(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 300),
+                    const SizedBox(height: 200), // Adjusted space at the top
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(25),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(30),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.brown,
-                              blurRadius: 20,
+                              color: Colors.brown.withOpacity(0.5),
+                              blurRadius: 15,
                               offset: const Offset(0, -2),
                             ),
                           ],
                         ),
                         child: Column(
                           children: [
-                            // Error message above username
+                            // Error message above the input fields
                             if (_errorMessage.isNotEmpty)
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
@@ -92,7 +92,7 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 15), // Adjusted space
 
                             // Password input
                             TextFormField(
@@ -108,7 +108,7 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 20), // Adjusted space
 
                             // Login button
                             SizedBox(
@@ -166,14 +166,14 @@ class _LoginState extends State<Login> {
                                 child: const Text(
                                   'Login',
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 16, // Adjusted font size
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 20), // Adjusted space
 
                             // Forgot Password Button
                             TextButton(

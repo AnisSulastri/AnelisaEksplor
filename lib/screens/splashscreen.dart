@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:anelisaeksplor/screens/login.dart'; // Halaman login
 import 'package:anelisaeksplor/screens/register.dart'; // Halaman register
 
-void main() {
-  runApp(const Splashscreen());
-}
-
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});
 
@@ -30,7 +26,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/cikondang.jpg'), // Path gambar
+                image: AssetImage('assets/ciismun.jpg'), // Path gambar
                 fit: BoxFit.cover,
               ),
             ),
@@ -40,7 +36,7 @@ class LoginScreen extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.black.withOpacity(0.3),
+                  Colors.black.withOpacity(0.4),
                   Colors.transparent,
                 ],
                 begin: Alignment.bottomCenter,
@@ -73,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const Login(), // Ke halaman login
+                                const Login(), // Navigating to login screen
                           ),
                         );
                       },
@@ -96,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const Register(), // Ke halaman register
+                                const Register(), // Navigating to register screen
                           ),
                         );
                       },
@@ -109,16 +105,16 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: RichText(
                         text: const TextSpan(
-                          text: 'Do you have account? ', // Teks biasa
+                          text: 'Don\'t have an account? ', // Regular text
                           style: TextStyle(
-                            color: Colors.white, // Warna teks biasa
+                            color: Colors.white, // Regular text color
                             fontSize: 16,
                           ),
                           children: [
                             TextSpan(
-                              text: 'Register', // Teks Register
+                              text: 'Register', // Register text
                               style: TextStyle(
-                                color: Colors.blue, // Warna teks Register
+                                color: Colors.blue, // Register text color
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

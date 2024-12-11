@@ -1,5 +1,5 @@
 import 'package:anelisaeksplor/models/destination_model.dart';
-import 'package:anelisaeksplor/screens/pembayaran.dart';
+import 'package:anelisaeksplor/screens/pembayaranscreen.dart';
 import 'package:flutter/material.dart'; // Import model destination
 
 class Detailpesanan extends StatefulWidget {
@@ -26,9 +26,16 @@ class _DetailpesananState extends State<Detailpesanan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pesanan Tiket",
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text("Pesanan",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -120,6 +127,7 @@ class _DetailpesananState extends State<Detailpesanan> {
             SizedBox(height: 20),
             // Informasi harga dan total
             Container(
+              color: Colors.orange[50],
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -177,12 +185,12 @@ class _DetailpesananState extends State<Detailpesanan> {
                 Future.delayed(Duration(milliseconds: 500), () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Pembayaran()),
+                    MaterialPageRoute(builder: (context) => Pembayaranscreen()),
                   );
                 });
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.green[600],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -191,7 +199,7 @@ class _DetailpesananState extends State<Detailpesanan> {
               child: Center(
                 child: Text(
                   "Buat Pesanan",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
             ),

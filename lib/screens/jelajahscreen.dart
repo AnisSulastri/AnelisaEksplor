@@ -1,6 +1,6 @@
-import 'package:anelisaeksplor/models/jelajah_model.dart';
+import 'package:anelisaeksplor/models/destination_model.dart';
+import 'package:anelisaeksplor/screens/detailwisata.dart';
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/detailjelajah.dart'; // Import Detailjelajah
 
 class Jelajahscreen extends StatelessWidget {
   const Jelajahscreen({super.key});
@@ -41,16 +41,8 @@ class Jelajahscreen extends StatelessWidget {
       width: 300, // Tentukan lebar search bar secara manual
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Colors.grey[200], // Warna latar belakang search bar
+        color: Colors.grey[300], // Warna latar belakang search bar
         borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: const TextField(
         decoration: InputDecoration(
@@ -68,6 +60,11 @@ class Jelajahscreen extends StatelessWidget {
 
   // Membuat widget GridView untuk menampilkan daftar jelajah
   Widget _buildGridView() {
+    // Filter list untuk kategori rekomendasi
+    final rekomendasiDestinations = listDestination
+        .where((destination) => destination.category == 'rekomendasi')
+        .toList();
+
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -75,17 +72,16 @@ class Jelajahscreen extends StatelessWidget {
         mainAxisSpacing: 10.0,
         childAspectRatio: 0.8,
       ),
-      itemCount:
-          listDestination.length, // Pastikan listDestination sudah terdefinisi
+      itemCount: rekomendasiDestinations.length,
       itemBuilder: (context, index) {
-        final jelajah = listDestination[index];
+        final jelajah = rekomendasiDestinations[index];
         return GestureDetector(
           onTap: () {
-            // Navigasi ke halaman Detailjelajah
+            // Navigasi ke halaman Detailwisata
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Detailjelajah(destination: jelajah),
+                builder: (context) => Detailwisata(destination: jelajah),
               ),
             );
           },
@@ -96,7 +92,7 @@ class Jelajahscreen extends StatelessWidget {
   }
 
   // Membuat widget Card untuk item Jelajah
-  Widget _buildJelajahCard(Jelajahlist jelajah) {
+  Widget _buildJelajahCard(TravelDestination jelajah) {
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(
@@ -111,7 +107,7 @@ class Jelajahscreen extends StatelessWidget {
             Image.asset(
               jelajah.image?.isNotEmpty == true
                   ? jelajah.image![0]
-                  : 'default_image_path', // Menggunakan default image jika tidak ada
+                  : 'assets/default_image.jpg', // Menggunakan default image jika tidak ada
               fit: BoxFit.cover,
             ),
             // Overlay dengan judul di atas gambar atau elemen lainnya bisa ditambahkan di sini

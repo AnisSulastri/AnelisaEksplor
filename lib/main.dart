@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/splashscreen.dart'; 
-import 'package:anelisaeksplor/screens/register.dart'; 
-import 'package:anelisaeksplor/screens/login.dart'; 
+import 'package:anelisaeksplor/screens/splashscreen.dart';
+import 'package:anelisaeksplor/screens/register.dart';
+import 'package:anelisaeksplor/screens/login.dart';
 
 void main() {
   runApp(AnelisaEksplor());

@@ -1,9 +1,9 @@
-import 'package:anelisaeksplor/models/rekomendasi_model.dart';
+import 'package:anelisaeksplor/models/destination_model.dart';
 import 'package:anelisaeksplor/utils/const.dart';
 import 'package:flutter/material.dart';
 
 class Rekomendasi extends StatelessWidget {
-  final RekomendasiModel destination;
+  final TravelDestination destination;
 
   const Rekomendasi({
     super.key,
@@ -120,7 +120,7 @@ class Rekomendasi extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: "Rp${destination.price}K",
+                      text: "Rp${destination.price}",
                       style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,

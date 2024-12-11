@@ -1,13 +1,13 @@
+import 'package:anelisaeksplor/models/destination_model.dart';
+import 'package:anelisaeksplor/screens/detailwisata.dart';
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/models/rekomendasi_model.dart';
-import 'package:anelisaeksplor/widgets/rekomendasi.dart';
-import 'package:anelisaeksplor/screens/detailrekomendasi.dart'; // Import utama
+import 'package:anelisaeksplor/widgets/rekomendasi.dart'; // Import utama
 
 class RekomendasiScreen extends StatelessWidget {
   RekomendasiScreen({Key? key}) : super(key: key);
 
   // Memfilter daftar destinasi dengan kategori 'rekomendasi'
-  final List<RekomendasiModel> rekomendasi = listRekomendasi
+  final List<TravelDestination> rekomendasi = listDestination
       .where((element) => element.category == 'rekomendasi')
       .toList();
 
@@ -41,7 +41,7 @@ class RekomendasiScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => Detailrekomendasi(
+                    builder: (_) => Detailwisata(
                       destination: destination, // Navigasi ke halaman detail
                     ),
                   ),

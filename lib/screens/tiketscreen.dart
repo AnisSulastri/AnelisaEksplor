@@ -13,7 +13,6 @@ class _TiketScreenState extends State<TiketScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Memanggil tiket berdasarkan kategori
     final List<TiketModel> daftar = TiketData.listTiket
         .where((element) => element.category == 'daftar')
         .toList();
@@ -23,23 +22,23 @@ class _TiketScreenState extends State<TiketScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green[200], // Menggunakan warna yang konsisten
+        backgroundColor: Colors.green[200],
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildTabButton("Daftar", 0),
-              const SizedBox(width: 12),
+              const SizedBox(width: 8),
               _buildTabButton("Riwayat", 1),
             ],
           ),
         ),
       ),
       body: Container(
-        color: Colors.green[200], // Latar belakang konsisten di seluruh body
+        color: Colors.green[200],
         padding: const EdgeInsets.all(8.0),
         child: _selectedTab == 0
             ? TiketListWidget(tiketList: daftar, selectedTab: _selectedTab)
@@ -48,7 +47,6 @@ class _TiketScreenState extends State<TiketScreen> {
     );
   }
 
-  // Widget tombol navigasi Daftar dan Riwayat
   Widget _buildTabButton(String label, int index) {
     final isSelected = _selectedTab == index;
     return GestureDetector(
@@ -58,7 +56,7 @@ class _TiketScreenState extends State<TiketScreen> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
         decoration: BoxDecoration(
           color: isSelected ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(20.0),
@@ -70,8 +68,8 @@ class _TiketScreenState extends State<TiketScreen> {
             if (isSelected)
               BoxShadow(
                 color: Colors.green.withOpacity(0.4),
-                blurRadius: 6,
-                offset: Offset(0, 4),
+                blurRadius: 4,
+                offset: Offset(0, 2),
               ),
           ],
         ),
@@ -79,7 +77,7 @@ class _TiketScreenState extends State<TiketScreen> {
           label,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
             color: isSelected ? Colors.green[800] : Colors.black87,
           ),
@@ -103,58 +101,60 @@ class TiketListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        // Header dengan status
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 selectedTab == 0 ? "Daftar Tiket" : "Riwayat Tiket",
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Text(
                 selectedTab == 0 ? "Status: Aktif" : "Status: Tidak Aktif",
-                style: TextStyle(fontSize: 14, color: Colors.black54),
+                style: TextStyle(fontSize: 12, color: Colors.black54),
               ),
             ],
           ),
         ),
-        // Menampilkan daftar tiket
         tiketList.isNotEmpty
             ? Column(
                 children: tiketList.map((tiket) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5.0),
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(10.0),
                         image: DecorationImage(
                           image: AssetImage('assets/tiket.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
-                      height: 130.0,
+                      height: 100.0, // Tinggi elemen lebih kecil
                       child: Stack(
                         children: [
                           ListTile(
-                            contentPadding: const EdgeInsets.all(12.0),
-                            title: Text(
-                              tiket.nama,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                            contentPadding: const EdgeInsets.all(8.0),
+                            title: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 16.0), // Geser teks ke kanan
+                              child: Text(
+                                tiket.nama,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                             subtitle: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10.0, top: 6.0),
+                              padding: const EdgeInsets.only(
+                                  left: 16.0, top: 4.0), // Geser teks ke kanan
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -163,32 +163,32 @@ class TiketListWidget extends StatelessWidget {
                                       Text(
                                         "${tiket.tanggal}",
                                         style: const TextStyle(
-                                            fontSize: 13, color: Colors.grey),
+                                            fontSize: 12, color: Colors.grey),
                                       ),
-                                      const SizedBox(width: 50),
+                                      const SizedBox(width: 30),
                                       Text(
                                         "${tiket.waktu}",
                                         style: const TextStyle(
-                                            fontSize: 13, color: Colors.grey),
+                                            fontSize: 12, color: Colors.grey),
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 6.0),
+                                  const SizedBox(height: 4.0),
                                   Text(
                                     "Tiket: ${tiket.jumlah} orang",
                                     style: const TextStyle(
-                                        fontSize: 13, color: Colors.black),
+                                        fontSize: 12, color: Colors.black),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                            top: 25.0,
-                            right: 15.0,
+                            top: 20.0,
+                            right: 25.0, // Geser QR ke kiri sedikit
                             child: Icon(
                               Icons.qr_code,
-                              size: 70.0,
+                              size: 50.0, // Ukuran ikon lebih kecil
                               color: Colors.black,
                             ),
                           ),
@@ -201,7 +201,7 @@ class TiketListWidget extends StatelessWidget {
             : Center(
                 child: Text(
                   "Tidak ada tiket tersedia.",
-                  style: TextStyle(fontSize: 14, color: Colors.black54),
+                  style: TextStyle(fontSize: 12, color: Colors.black54),
                 ),
               ),
       ],

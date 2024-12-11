@@ -1,47 +1,46 @@
-import 'package:anelisaeksplor/screens/login.dart';
-import 'package:flutter/material.dart'; // Import halaman Login
+import 'package:flutter/material.dart';
+import 'package:anelisaeksplor/screens/login.dart'; // Import halaman Login
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading:
-            false, // Menonaktifkan tampilan otomatis leading
+        automaticallyImplyLeading: false, // Menonaktifkan ikon back otomatis
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
-          // Tombol notifikasi
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.black),
-            onPressed: () {
-              // Aksi untuk notifikasi
-            },
+            onPressed: () {},
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Avatar Profile
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/google.png'),
+              backgroundImage: const AssetImage(
+                  'assets/user.jpg'), // Ganti dengan foto profil yang sesuai
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
 
-            // Nama Pengguna
+            // Username
             const Text(
               'Gais',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: Colors.black,
               ),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 30),
 
             // Menu Card
             Card(
@@ -50,29 +49,64 @@ class AccountScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(30.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Menu List
-                    MenuItem(title: 'Informasi Akun'),
-                    MenuItem(title: 'Riwayat Perjalanan'),
-                    MenuItem(title: 'Pengaturan Akun'),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Username sebagai teks biasa
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          child: Text(
+                            'Username',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        const Divider(),
+
+                        // Email sebagai teks biasa
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          child: Text(
+                            'email',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        const Divider(),
+                      ],
+                    ),
+
+                    // Menu List - Pengaturan Akun (dengan ikon >)
+                    MenuItem(
+                      title: 'Pengaturan Akun',
+                      onPressed: () {
+                        print("Navigating to Settings");
+                      },
+                      hasArrow: true,
+                    ),
                     const Divider(),
 
                     // Logout button
                     TextButton(
                       onPressed: () {
-                        // Mengarahkan kembali ke halaman login saat logout
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const Login(), // Halaman Login
+                            builder: (context) => const Login(),
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Keluar',
                         style: TextStyle(
                           color: Colors.red,
@@ -88,6 +122,7 @@ class AccountScreen extends StatelessWidget {
           ],
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }
@@ -96,24 +131,42 @@ class AccountScreen extends StatelessWidget {
 class MenuItem extends StatelessWidget {
   final String title;
   final Color? titleColor;
+  final VoidCallback? onPressed;
+  final bool hasArrow;
 
-  const MenuItem({required this.title, this.titleColor});
+  const MenuItem({
+    required this.title,
+    this.titleColor,
+    this.onPressed,
+    this.hasArrow = true,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: titleColor ?? Colors.black,
-          ),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: titleColor ?? Colors.black, // Default warna teks hitam
+              ),
+            ),
+            if (hasArrow)
+              const Icon(
+                Icons.arrow_forward_ios,
+                size: 16,
+                color: Colors.black,
+              ),
+          ],
         ),
-        const Icon(Icons.arrow_forward_ios, size: 16),
-      ],
+      ),
     );
   }
 }

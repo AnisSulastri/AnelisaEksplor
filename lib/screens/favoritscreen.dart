@@ -1,8 +1,7 @@
-import 'package:anelisaeksplor/screens/detailfav.dart';
+import 'package:anelisaeksplor/models/destination_model.dart'; // Model destinasi/ Widget Favorit
+import 'package:anelisaeksplor/screens/jelajahscreen.dart';
+import 'package:anelisaeksplor/widgets/favorit.dart';
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/jelajahscreen.dart'; // Impor untuk navigasi ke halaman Jelajahscreen
-import 'package:anelisaeksplor/models/fav_model.dart'; // Impor model untuk destinasi favorit
-// Impor DetailFavScreen
 
 class Favoritscreen extends StatefulWidget {
   const Favoritscreen({Key? key}) : super(key: key);
@@ -13,6 +12,9 @@ class Favoritscreen extends StatefulWidget {
 
 class _FavoritscreenState extends State<Favoritscreen> {
   final ScrollController _scrollController = ScrollController();
+  final List<TravelDestination> favorit = listDestination
+      .where((element) => element.category == 'favorit')
+      .toList();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,10 @@ class _FavoritscreenState extends State<Favoritscreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.add, color: Colors.black),
+            icon: const Icon(
+              Icons.add_circle_outline_rounded, // Ikon 'add' dengan outline
+              color: Colors.black, // Warna ikon
+            ),
             onPressed: () {
               // Aksi untuk menambah favorit
             },
@@ -43,64 +48,37 @@ class _FavoritscreenState extends State<Favoritscreen> {
       ),
       body: Stack(
         children: [
-          GridView.builder(
-            controller: _scrollController,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 1,
-            ),
-            itemCount: listDestination.length,
-            itemBuilder: (context, index) {
-              final destination = listDestination[index];
-
-              return Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Stack(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        // Navigasi ke detail saat gambar diklik
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Detailfav(destination: destination),
-                          ),
-                        );
+          // Display message if no favorite destinations
+          favorit.isEmpty
+              ? const Center(
+                  child: Text(
+                    'Belum ada destinasi favorit.',
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                )
+              : GridView.builder(
+                  controller: _scrollController,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 1,
+                  ),
+                  itemCount: favorit.length,
+                  itemBuilder: (context, index) {
+                    final destination = favorit[index];
+                    return FavoritWidget(
+                      destination: destination,
+                      isFavorited: true,
+                      onFavoriteToggle: () {
+                        setState(() {
+                          favorit.remove(destination);
+                        });
                       },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          destination.image?.first ?? "assets/default.jpg",
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 200,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 10,
-                      right: 10,
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {
-                          // Handle aksi love (misalnya menambah ke favorit)
-                        },
-                      ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
-              );
-            },
-          ),
+          // Button to navigate to Jelajah screen
           Positioned(
             bottom: 20,
             left: 20,
@@ -118,7 +96,7 @@ class _FavoritscreenState extends State<Favoritscreen> {
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(15),
                 ),
               ),
               child: const Text(

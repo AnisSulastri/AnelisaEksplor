@@ -92,7 +92,7 @@ class Detailwisata extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${destination.price}k/orang',
+                          'Rp${destination.price}/orang',
                           style: const TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,

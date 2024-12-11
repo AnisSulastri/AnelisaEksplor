@@ -34,7 +34,7 @@ List<TravelDestination> listDestination = [
       ],
       location: 'Cipanas, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 15,
+      price: 15000,
       description: description,
       rate: 4.8),
   TravelDestination(
@@ -44,9 +44,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/cikondang.jpg",
       ],
-      location: 'Cikondang, Cianjur',
+      location: 'Campaka, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 10000,
       description: description,
       rate: 4.9),
   TravelDestination(
@@ -56,9 +56,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/citambur.jpg",
       ],
-      location: 'citambur, Cianjur',
+      location: 'Pasir Kuda, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 10000,
       description: description,
       rate: 4.9),
   TravelDestination(
@@ -70,7 +70,7 @@ List<TravelDestination> listDestination = [
       ],
       location: 'Cibodas, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 16000,
       description: description,
       rate: 4.9),
   TravelDestination(
@@ -80,9 +80,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/ciastana.jpg",
       ],
-      location: 'Cianjur Selatan, Cianjur',
+      location: 'Kadupandak, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 10000,
       description: description,
       rate: 4.9),
   TravelDestination(
@@ -92,9 +92,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/ngebul.jpg",
       ],
-      location: 'Cianjur Selatan, Cianjur',
+      location: 'Pagelaran, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 10000,
       description: description,
       rate: 4.9),
   TravelDestination(
@@ -104,9 +104,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/cipendawa.jpg",
       ],
-      location: 'Cianjur Selatan, Cianjur',
+      location: 'Cipanas, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 10000,
       description: description,
       rate: 4.9),
   TravelDestination(
@@ -116,9 +116,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/walanda.jpg",
       ],
-      location: 'Cianjur Selatan, Cianjur',
+      location: 'Cibinong, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 5000,
       description: description,
       rate: 4.9),
 
@@ -129,9 +129,9 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/luhur.jpg",
       ],
-      location: 'Cianjur Selatan, Cianjur',
+      location: 'Cibinong, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 45000,
       description: description,
       rate: 4.9),
 
@@ -142,9 +142,169 @@ List<TravelDestination> listDestination = [
       image: [
         "assets/dadali.jpg",
       ],
-      location: 'Cianjur Selatan, Cianjur',
+      location: 'Kadupandak, Cianjur',
       review: random.nextInt(250) + 20,
-      price: 10,
+      price: 5000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 11,
+      name: "Curug Cibeureum",
+      category: 'rekomendasi',
+      image: [
+        "assets/cibeureum.jpg",
+      ],
+      location: 'Cipanas, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 15000,
+      description: description,
+      rate: 4.8),
+  TravelDestination(
+      id: 12,
+      name: "rekomendasi",
+      category: 'popular',
+      image: [
+        "assets/cikondang.jpg",
+      ],
+      location: 'Campaka, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 10000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 13,
+      name: "Curug citambur",
+      category: 'rekomendasi',
+      image: [
+        "assets/citambur.jpg",
+      ],
+      location: 'Pasirkuda, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 10000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 14,
+      name: "Curug Ciismun",
+      category: 'rekomendasi',
+      image: [
+        "assets/ciismun.jpg",
+      ],
+      location: 'Cibodas, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 16000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 15,
+      name: "Curug Ciastana",
+      category: 'rekomendasi',
+      image: [
+        "assets/ciastana.jpg",
+      ],
+      location: 'Kadupandak, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 10000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 16,
+      name: "Curug Ngebul",
+      category: 'rekomendasi',
+      image: [
+        "assets/ngebul.jpg",
+      ],
+      location: 'Pagelaran, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 10000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 17,
+      name: "Curug Cipendawa",
+      category: 'rekomendasi',
+      image: [
+        "assets/cipendawa.jpg",
+      ],
+      location: 'Cipanas, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 10000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 18,
+      name: "Curug Walanda",
+      category: 'rekomendasi',
+      image: [
+        "assets/walanda.jpg",
+      ],
+      location: 'Cibinong, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 10000,
+      description: description,
+      rate: 4.9),
+
+  TravelDestination(
+      id: 19,
+      name: "Curug Luhur",
+      category: 'rekomendasi',
+      image: [
+        "assets/luhur.jpg",
+      ],
+      location: 'Cibinong, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 45000,
+      description: description,
+      rate: 4.9),
+
+  TravelDestination(
+      id: 20,
+      name: "Curug Dadali",
+      category: 'rekomendasi',
+      image: [
+        "assets/dadali.jpg",
+      ],
+      location: 'Kadupandak, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 5000,
+      description: description,
+      rate: 4.9),
+  TravelDestination(
+      id: 21,
+      name: "Curug Cibeureum",
+      category: 'favorit',
+      image: [
+        "assets/cibeureum.jpg",
+      ],
+      location: 'Cipanas, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 15000,
+      description: description,
+      rate: 4.9),
+
+  TravelDestination(
+      id: 22,
+      name: "Curug Luhur",
+      category: 'favorit',
+      image: [
+        "assets/luhur.jpg",
+      ],
+      location: 'Cibinong, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 45000,
+      description: description,
+      rate: 4.9),
+
+  TravelDestination(
+      id: 23,
+      name: "Curug Dadali",
+      category: 'favorit',
+      image: [
+        "assets/dadali.jpg",
+      ],
+      location: 'Kadupandak, Cianjur',
+      review: random.nextInt(250) + 20,
+      price: 5000,
       description: description,
       rate: 4.9),
 ];

@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildDrawer(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.green[200],
+        color: Colors.green[400],
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -175,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Curug Terpopuler',
+                  'Popular Place',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 TextButton(
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   child: const Text(
-                    'Lihat Semua',
+                    'View All',
                     style: TextStyle(color: Colors.blue),
                   ),
                 ),
@@ -223,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Curug Lainnya',
+                  'Other Waterfalls',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
