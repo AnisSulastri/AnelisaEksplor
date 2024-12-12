@@ -19,7 +19,7 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Navigasi kembali
+            Navigator.pop(context); 
           },
         ),
         title: const Text('Pengaturan'),
@@ -29,7 +29,6 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            // Pengaturan Tema
             ListTile(
               title: const Text('Tema Gelap'),
               trailing: Switch(
@@ -48,8 +47,6 @@ class _PengaturanScreenState extends State<PengaturanScreen> {
             ),
 
             const Divider(),
-
-            // Pengaturan Bahasa
             ListTile(
               title: const Text('Bahasa'),
               subtitle: Text(_selectedLanguage),

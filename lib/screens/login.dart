@@ -11,15 +11,13 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String _errorMessage = ""; // Variable to store the error message
-
+  String _errorMessage = ""; 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image with rounded corners
           Positioned(
             top: 0,
             left: 0,
@@ -37,7 +35,6 @@ class _LoginState extends State<Login> {
             ),
           ),
 
-          // Login form
           SafeArea(
             child: SingleChildScrollView(
               child: Padding(
@@ -47,7 +44,7 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 200), // Adjusted space at the top
+                    const SizedBox(height: 200), 
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
@@ -66,7 +63,6 @@ class _LoginState extends State<Login> {
                         ),
                         child: Column(
                           children: [
-                            // Error message above the input fields
                             if (_errorMessage.isNotEmpty)
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
@@ -79,7 +75,6 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
 
-                            // Username input
                             TextFormField(
                               controller: _usernameController,
                               decoration: InputDecoration(
@@ -92,9 +87,8 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15), // Adjusted space
+                            const SizedBox(height: 15), 
 
-                            // Password input
                             TextFormField(
                               controller: _passwordController,
                               obscureText: true,
@@ -108,17 +102,14 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20), // Adjusted space
+                            const SizedBox(height: 20), 
 
-                            // Login button
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  // Check username and password
                                   if (_usernameController.text.isNotEmpty &&
                                       _passwordController.text.isNotEmpty) {
-                                    // Show success pop-up
                                     showDialog(
                                       context: context,
                                       builder: (BuildContext context) {
@@ -130,14 +121,12 @@ class _LoginState extends State<Login> {
                                             TextButton(
                                               child: const Text("OK"),
                                               onPressed: () {
-                                                // Close the dialog
                                                 Navigator.of(context).pop();
-                                                // Navigate to next screen
                                                 Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        const Navigationscreen(), // Halaman tujuan
+                                                        const Navigationscreen(), 
                                                   ),
                                                 );
                                               },
@@ -147,7 +136,6 @@ class _LoginState extends State<Login> {
                                       },
                                     );
                                   } else {
-                                    // Show error message if credentials are empty
                                     setState(() {
                                       _errorMessage =
                                           'Please fill in both fields';
@@ -166,16 +154,14 @@ class _LoginState extends State<Login> {
                                 child: const Text(
                                   'Login',
                                   style: TextStyle(
-                                    fontSize: 16, // Adjusted font size
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20), // Adjusted space
-
-                            // Forgot Password Button
+                            const SizedBox(height: 20),
                             TextButton(
                               onPressed: () {
                                 showDialog(

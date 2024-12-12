@@ -11,10 +11,8 @@ class _RegisterState extends State<Register> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  String? _errorMessage; 
 
-  String? _errorMessage; // Variable for error message
-
-  // Function to validate email
   bool isValidEmail(String email) {
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     return emailRegex.hasMatch(email);
@@ -25,7 +23,6 @@ class _RegisterState extends State<Register> {
     final username = _usernameController.text.trim();
     final password = _passwordController.text.trim();
 
-    // Validate input
     if (email.isEmpty || username.isEmpty || password.isEmpty) {
       setState(() {
         _errorMessage = 'All fields are required!';
@@ -39,13 +36,9 @@ class _RegisterState extends State<Register> {
       });
       return;
     }
-
-    // If validation passes
     setState(() {
-      _errorMessage = null; // Clear the error message if validation passes
+      _errorMessage = null; 
     });
-
-    // Show success dialog
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -73,7 +66,6 @@ class _RegisterState extends State<Register> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image with rounded corners
           Positioned(
             top: 0,
             left: 0,
@@ -84,14 +76,12 @@ class _RegisterState extends State<Register> {
                 bottomRight: Radius.circular(25),
               ),
               child: Image.asset(
-                'assets/ciismun.jpg', // Background image path
+                'assets/ciismun.jpg',
                 fit: BoxFit.cover,
                 height: MediaQuery.of(context).size.height * 0.6,
               ),
             ),
           ),
-
-          // Registration form
           SafeArea(
             child: SingleChildScrollView(
               child: Padding(
@@ -101,9 +91,7 @@ class _RegisterState extends State<Register> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 150), // Adjusted top spacer
-
-                    // Form container
+                    const SizedBox(height: 150), 
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
@@ -122,7 +110,6 @@ class _RegisterState extends State<Register> {
                         ),
                         child: Column(
                           children: [
-                            // Error message above form
                             if (_errorMessage != null)
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
@@ -136,7 +123,6 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
 
-                            // Email input field
                             TextFormField(
                               controller: _emailController,
                               decoration: InputDecoration(
@@ -149,9 +135,8 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15), // Adjusted space
+                            const SizedBox(height: 15), 
 
-                            // Username input field
                             TextFormField(
                               controller: _usernameController,
                               decoration: InputDecoration(
@@ -164,9 +149,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15), // Adjusted space
-
-                            // Password input field
+                            const SizedBox(height: 15), 
                             TextFormField(
                               controller: _passwordController,
                               obscureText: true,
@@ -180,9 +163,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 25), // Adjusted space
-
-                            // Register button
+                            const SizedBox(height: 25),
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
@@ -206,9 +187,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10), // Adjusted space
-
-                            // "Or With" text
+                            const SizedBox(height: 10), 
                             const Text(
                               'Or With',
                               style: TextStyle(
@@ -216,13 +195,9 @@ class _RegisterState extends State<Register> {
                                 color: Colors.black,
                               ),
                             ),
-                            const SizedBox(height: 10), // Adjusted space
-
-                            // Google icon button
+                            const SizedBox(height: 10), 
                             IconButton(
-                              onPressed: () {
-                                // Handle Google Sign-In here
-                              },
+                              onPressed: () {},
                               icon: Image.asset(
                                 'assets/google.png',
                                 width: 30,

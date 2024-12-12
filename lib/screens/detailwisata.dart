@@ -1,6 +1,6 @@
 import 'package:anelisaeksplor/screens/detailpesanan.dart';
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/models/destination_model.dart'; // Pastikan untuk mengimport halaman DetailPesanan
+import 'package:anelisaeksplor/models/destination_model.dart';
 
 class Detailwisata extends StatelessWidget {
   final TravelDestination destination;
@@ -12,18 +12,15 @@ class Detailwisata extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image (not full screen)
           Container(
-            height: MediaQuery.of(context).size.height *
-                0.8, // 80% of screen height
+            height: MediaQuery.of(context).size.height * 0.8,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(destination.image![0]), // First image in list
+                image: AssetImage(destination.image![0]),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Content
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -75,13 +72,11 @@ class Detailwisata extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            // Navigasi ke halaman DetailPesanan dengan destinasi yang dipilih
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => Detailpesanan(
-                                  destination:
-                                      destination, // Pass the selected destination
+                                  destination: destination,
                                 ),
                               ),
                             );
@@ -106,7 +101,6 @@ class Detailwisata extends StatelessWidget {
               ),
             ),
           ),
-          // Back Button
           Positioned(
             top: 40.0,
             left: 16.0,

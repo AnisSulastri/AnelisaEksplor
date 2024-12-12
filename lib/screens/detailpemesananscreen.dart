@@ -23,19 +23,14 @@ class Detailpemesanan extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Card 1: Detail Tiket
             buildCard1(),
             const SizedBox(height: 20),
-            // Card 2: Detail Pemesanan
             buildCard2(),
             const SizedBox(height: 20),
-            // Card 3: Total Harga
             buildCard3(),
             const SizedBox(height: 20),
-            // QR Code dan Catatan
             buildQRCodeSection(),
             const Spacer(),
-            // Tombol Download dan Cancel
             buildBottomButtons(context),
           ],
         ),
@@ -82,7 +77,6 @@ class Detailpemesanan extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Sisi Kiri
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
@@ -143,7 +137,6 @@ class Detailpemesanan extends StatelessWidget {
   Widget buildQRCodeSection() {
     return Column(
       children: [
-        // QR Code
         Center(
           child: Image.asset(
             'assets/qrcode.png',
@@ -153,7 +146,6 @@ class Detailpemesanan extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        // Note
         const Text(
           "Note : Perlihatkan kode QR saat memasuki tempat wisata",
           textAlign: TextAlign.center,
@@ -166,12 +158,9 @@ class Detailpemesanan extends StatelessWidget {
   Widget buildBottomButtons(BuildContext context) {
     return Row(
       children: [
-        // Tombol Download
         Expanded(
           child: ElevatedButton(
-            onPressed: () {
-              // Aksi untuk tombol download
-            },
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green.shade900,
               padding: const EdgeInsets.symmetric(vertical: 15),
@@ -183,7 +172,6 @@ class Detailpemesanan extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        // Tombol Cancel
         Expanded(
           child: OutlinedButton(
             onPressed: () => Navigator.pop(context),

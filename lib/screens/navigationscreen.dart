@@ -5,7 +5,6 @@ import 'package:anelisaeksplor/screens/tiketscreen.dart';
 import 'package:flutter/material.dart';
 
 class Navigationscreen extends StatefulWidget {
-  // Konstruktor const untuk Navigationscreen
   const Navigationscreen({super.key});
 
   @override
@@ -14,7 +13,6 @@ class Navigationscreen extends StatefulWidget {
 
 class _NavigationscreenState extends State<Navigationscreen> {
   int _selectedIndex = 0;
-
   final List<Widget> _pages = const [
     HomeScreen(),
     TiketScreen(),
@@ -31,7 +29,7 @@ class _NavigationscreenState extends State<Navigationscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex], // Mengubah halaman sesuai indeks
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,

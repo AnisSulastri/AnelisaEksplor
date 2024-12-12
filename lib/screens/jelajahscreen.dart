@@ -12,12 +12,12 @@ class Jelajahscreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context); // Navigasi kembali
+            Navigator.pop(context);
           },
         ),
         title: const Text(
           'Jelajah',
-          style: TextStyle(color: Colors.black), // Teks judul di tengah
+          style: TextStyle(color: Colors.black), 
         ),
         actions: [
           Padding(
@@ -34,14 +34,12 @@ class Jelajahscreen extends StatelessWidget {
       ),
     );
   }
-
-  // Membuat widget search bar
   Widget _buildSearchBar() {
     return Container(
-      width: 300, // Tentukan lebar search bar secara manual
+      width: 300, 
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Colors.grey[300], // Warna latar belakang search bar
+        color: Colors.grey[300], 
         borderRadius: BorderRadius.circular(30),
       ),
       child: const TextField(
@@ -58,9 +56,7 @@ class Jelajahscreen extends StatelessWidget {
     );
   }
 
-  // Membuat widget GridView untuk menampilkan daftar jelajah
   Widget _buildGridView() {
-    // Filter list untuk kategori rekomendasi
     final rekomendasiDestinations = listDestination
         .where((destination) => destination.category == 'rekomendasi')
         .toList();
@@ -77,7 +73,6 @@ class Jelajahscreen extends StatelessWidget {
         final jelajah = rekomendasiDestinations[index];
         return GestureDetector(
           onTap: () {
-            // Navigasi ke halaman Detailwisata
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -90,8 +85,6 @@ class Jelajahscreen extends StatelessWidget {
       },
     );
   }
-
-  // Membuat widget Card untuk item Jelajah
   Widget _buildJelajahCard(TravelDestination jelajah) {
     return Card(
       elevation: 5,
@@ -103,14 +96,12 @@ class Jelajahscreen extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            // Pastikan image tidak null
             Image.asset(
               jelajah.image?.isNotEmpty == true
                   ? jelajah.image![0]
-                  : 'assets/default_image.jpg', // Menggunakan default image jika tidak ada
+                  : 'assets/default_image.jpg', 
               fit: BoxFit.cover,
             ),
-            // Overlay dengan judul di atas gambar atau elemen lainnya bisa ditambahkan di sini
           ],
         ),
       ),

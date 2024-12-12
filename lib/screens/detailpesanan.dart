@@ -1,12 +1,9 @@
 import 'package:anelisaeksplor/models/destination_model.dart';
 import 'package:anelisaeksplor/screens/pembayaranscreen.dart';
-import 'package:flutter/material.dart'; // Import model destination
+import 'package:flutter/material.dart';
 
 class Detailpesanan extends StatefulWidget {
-  final TravelDestination
-      destination; // Menerima TravelDestination sebagai parameter
-
-  // Constructor menerima destination
+  final TravelDestination destination;
   Detailpesanan({required this.destination});
 
   @override
@@ -14,7 +11,7 @@ class Detailpesanan extends StatefulWidget {
 }
 
 class _DetailpesananState extends State<Detailpesanan> {
-  int ticketCount = 1; // Jumlah awal tiket
+  int ticketCount = 1;
 
   void incrementTicket() {
     setState(() {
@@ -42,30 +39,25 @@ class _DetailpesananState extends State<Detailpesanan> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Baris dengan gambar dan tombol jumlah tiket
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Gambar tiket dengan teks nama wisata dan harga
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Stack(
                     children: [
-                      // Gambar tiket
                       Image.asset(
-                        'assets/tiket_pesan.png', // Menggunakan gambar tiket_pesan.png
+                        'assets/tiket_pesan.png',
                         fit: BoxFit.cover,
-                        height: 140, // Sesuaikan tinggi gambar
+                        height: 140,
                         width: 270,
                       ),
-                      // Teks di atas gambar
                       Positioned(
                         left: 30,
                         bottom: 50,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Nama Wisata
                             Text(
                               widget.destination.name,
                               style: TextStyle(
@@ -74,7 +66,6 @@ class _DetailpesananState extends State<Detailpesanan> {
                                 color: Colors.black,
                               ),
                             ),
-                            // Harga
                             Text(
                               "Rp. ${widget.destination.price}",
                               style: TextStyle(
@@ -89,31 +80,25 @@ class _DetailpesananState extends State<Detailpesanan> {
                     ],
                   ),
                 ),
-                SizedBox(width: 5), // Memberikan jarak antar gambar dan tombol
-                // Tombol + di luar gambar
+                SizedBox(width: 5),
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      // Tombol +
                       Container(
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.green, width: 2), // Border hijau
-                          borderRadius: BorderRadius.circular(
-                              50), // Membuat border melingkar
+                          border: Border.all(color: Colors.green, width: 2),
+                          borderRadius: BorderRadius.circular(50),
                         ),
                         child: IconButton(
                           onPressed: incrementTicket,
-                          icon: Icon(Icons.add,
-                              color: Colors.green), // Warna ikon hijau
+                          icon: Icon(Icons.add, color: Colors.green),
                           padding: EdgeInsets.zero,
                         ),
                       ),
                       SizedBox(width: 10),
-                      // Menampilkan jumlah tiket
                       Text(
                         ticketCount.toString(),
                         style: TextStyle(
@@ -125,7 +110,6 @@ class _DetailpesananState extends State<Detailpesanan> {
               ],
             ),
             SizedBox(height: 20),
-            // Informasi harga dan total
             Container(
               color: Colors.orange[50],
               padding: const EdgeInsets.all(16.0),
@@ -141,7 +125,6 @@ class _DetailpesananState extends State<Detailpesanan> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Harga", style: TextStyle(fontSize: 16)),
-                      // Mengambil harga tiket dari TravelDestination
                       Text("Rp. ${widget.destination.price}",
                           style: TextStyle(fontSize: 16)),
                     ],
@@ -173,15 +156,11 @@ class _DetailpesananState extends State<Detailpesanan> {
               ),
             ),
             Spacer(),
-            // Tombol Buat Pesanan
             ElevatedButton(
               onPressed: () {
-                // Tampilkan SnackBar
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text("Pesanan berhasil dibuat!")),
                 );
-
-                // Navigasi ke halaman pembayaran setelah SnackBar ditampilkan
                 Future.delayed(Duration(milliseconds: 500), () {
                   Navigator.push(
                     context,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/login.dart'; // Import halaman Login
-
+import 'package:anelisaeksplor/screens/login.dart'; 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
 
@@ -8,7 +7,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Menonaktifkan ikon back otomatis
+        automaticallyImplyLeading: false, 
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -23,15 +22,12 @@ class AccountScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Avatar Profile
             CircleAvatar(
               radius: 50,
               backgroundImage: const AssetImage(
-                  'assets/user.jpg'), // Ganti dengan foto profil yang sesuai
+                  'assets/user.jpg'),
             ),
             const SizedBox(height: 20),
-
-            // Username
             const Text(
               'Gais',
               style: TextStyle(
@@ -41,8 +37,6 @@ class AccountScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-
-            // Menu Card
             Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -56,7 +50,6 @@ class AccountScreen extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Username sebagai teks biasa
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 8.0),
                           child: Text(
@@ -69,8 +62,6 @@ class AccountScreen extends StatelessWidget {
                           ),
                         ),
                         const Divider(),
-
-                        // Email sebagai teks biasa
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 8.0),
                           child: Text(
@@ -85,8 +76,6 @@ class AccountScreen extends StatelessWidget {
                         const Divider(),
                       ],
                     ),
-
-                    // Menu List - Pengaturan Akun (dengan ikon >)
                     MenuItem(
                       title: 'Pengaturan Akun',
                       onPressed: () {
@@ -95,8 +84,6 @@ class AccountScreen extends StatelessWidget {
                       hasArrow: true,
                     ),
                     const Divider(),
-
-                    // Logout button
                     TextButton(
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -127,7 +114,6 @@ class AccountScreen extends StatelessWidget {
   }
 }
 
-// Widget untuk item menu
 class MenuItem extends StatelessWidget {
   final String title;
   final Color? titleColor;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/login.dart'; // Halaman login
-import 'package:anelisaeksplor/screens/register.dart'; // Halaman register
+import 'package:anelisaeksplor/screens/login.dart'; 
+import 'package:anelisaeksplor/screens/register.dart'; 
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});
@@ -22,16 +22,14 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/ciismun.jpg'), // Path gambar
+                image: AssetImage('assets/ciismun.jpg'), 
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Gradient overlay for better contrast
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -44,7 +42,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Login Buttons
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -52,7 +49,6 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Login Button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -69,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const Login(), // Navigating to login screen
+                                const Login(), 
                           ),
                         );
                       },
@@ -83,7 +79,6 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  // Register Button
                   SizedBox(
                     width: double.infinity,
                     child: TextButton(
@@ -92,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const Register(), // Navigating to register screen
+                                const Register(), 
                           ),
                         );
                       },
@@ -105,16 +100,16 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: RichText(
                         text: const TextSpan(
-                          text: 'Don\'t have an account? ', // Regular text
+                          text: 'Don\'t have an account? ', 
                           style: TextStyle(
-                            color: Colors.white, // Regular text color
+                            color: Colors.white, 
                             fontSize: 16,
                           ),
                           children: [
                             TextSpan(
-                              text: 'Register', // Register text
+                              text: 'Register', 
                               style: TextStyle(
-                                color: Colors.blue, // Register text color
+                                color: Colors.blue, 
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

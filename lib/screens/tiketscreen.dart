@@ -9,7 +9,7 @@ class TiketScreen extends StatefulWidget {
 }
 
 class _TiketScreenState extends State<TiketScreen> {
-  int _selectedTab = 0; // 0 untuk Daftar, 1 untuk Riwayat
+  int _selectedTab = 0; 
 
   @override
   Widget build(BuildContext context) {
@@ -135,14 +135,14 @@ class TiketListWidget extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      height: 100.0, // Tinggi elemen lebih kecil
+                      height: 100.0, 
                       child: Stack(
                         children: [
                           ListTile(
                             contentPadding: const EdgeInsets.all(8.0),
                             title: Padding(
                               padding: const EdgeInsets.only(
-                                  left: 16.0), // Geser teks ke kanan
+                                  left: 16.0),
                               child: Text(
                                 tiket.nama,
                                 style: const TextStyle(
@@ -154,7 +154,7 @@ class TiketListWidget extends StatelessWidget {
                             ),
                             subtitle: Padding(
                               padding: const EdgeInsets.only(
-                                  left: 16.0, top: 4.0), // Geser teks ke kanan
+                                  left: 16.0, top: 4.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -185,10 +185,10 @@ class TiketListWidget extends StatelessWidget {
                           ),
                           Positioned(
                             top: 20.0,
-                            right: 25.0, // Geser QR ke kiri sedikit
+                            right: 25.0, 
                             child: Icon(
                               Icons.qr_code,
-                              size: 50.0, // Ukuran ikon lebih kecil
+                              size: 50.0, 
                               color: Colors.black,
                             ),
                           ),

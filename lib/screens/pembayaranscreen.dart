@@ -9,7 +9,7 @@ class Pembayaranscreen extends StatefulWidget {
 }
 
 class _PembayaranscreenState extends State<Pembayaranscreen> {
-  int? _selectedCard; // Track the selected card
+  int? _selectedCard;
 
   void _showSuccessModal(BuildContext context) {
     showDialog(
@@ -34,9 +34,8 @@ class _PembayaranscreenState extends State<Pembayaranscreen> {
       },
     );
 
-    // Redirect after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pop(context); // Close modal
+      Navigator.pop(context);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const Detailpemesanan()),
@@ -86,8 +85,7 @@ class _PembayaranscreenState extends State<Pembayaranscreen> {
                 ),
                 child: const Text(
                   "Bayar",
-                  style:
-                      TextStyle(color: Colors.white), // Memperbaiki sintaksis
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),

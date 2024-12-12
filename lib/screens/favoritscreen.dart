@@ -1,4 +1,4 @@
-import 'package:anelisaeksplor/models/destination_model.dart'; // Model destinasi/ Widget Favorit
+import 'package:anelisaeksplor/models/destination_model.dart'; 
 import 'package:anelisaeksplor/screens/jelajahscreen.dart';
 import 'package:anelisaeksplor/widgets/favorit.dart';
 import 'package:flutter/material.dart';
@@ -29,26 +29,23 @@ class _FavoritscreenState extends State<Favoritscreen> {
         ),
         title: const Center(
           child: Text(
-            'Favorit',
+            'Favorite',
             style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         ),
         actions: [
           IconButton(
             icon: const Icon(
-              Icons.add_circle_outline_rounded, // Ikon 'add' dengan outline
-              color: Colors.black, // Warna ikon
+              Icons.add_circle_outline_rounded, 
+              color: Colors.black, 
             ),
-            onPressed: () {
-              // Aksi untuk menambah favorit
-            },
+            onPressed: () {},
           ),
         ],
         backgroundColor: Colors.white,
       ),
       body: Stack(
         children: [
-          // Display message if no favorite destinations
           favorit.isEmpty
               ? const Center(
                   child: Text(
@@ -78,7 +75,6 @@ class _FavoritscreenState extends State<Favoritscreen> {
                     );
                   },
                 ),
-          // Button to navigate to Jelajah screen
           Positioned(
             bottom: 20,
             left: 20,

@@ -1,5 +1,4 @@
-import 'package:anelisaeksplor/screens/pengaturan.dart';
-import 'package:anelisaeksplor/screens/rekomendasiscreen.dart';
+import 'package:anelisaeksplor/screens/navdraw.dart';
 import 'package:flutter/material.dart';
 import 'package:anelisaeksplor/screens/jelajahscreen.dart';
 import 'package:anelisaeksplor/models/destination_model.dart';
@@ -59,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        endDrawer: _buildDrawer(context),
+        endDrawer: NavDrawer.buildDrawer(context),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -71,78 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDrawer(BuildContext context) {
-    return Drawer(
-      child: Container(
-        color: Colors.green[400],
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const SizedBox(height: 20.0), // Jarak atas
-
-            // Item Beranda
-            ListTile(
-              leading: const Icon(
-                Icons.home,
-                color: Colors.white,
-                size: 30.0, // Ukuran ikon lebih besar
-              ),
-              title: const Text(
-                'Beranda',
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-
-            // Item Rekomendasi
-            ListTile(
-              leading: const Icon(
-                Icons.recommend,
-                color: Colors.white,
-                size: 30.0, // Ukuran ikon lebih besar
-              ),
-              title: const Text(
-                'Rekomendasi',
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => RekomendasiScreen(),
-                  ),
-                );
-              },
-            ),
-
-            // Item Pengaturan
-            ListTile(
-              leading: const Icon(
-                Icons.settings,
-                color: Colors.white,
-                size: 30.0, // Ukuran ikon lebih besar
-              ),
-              title: const Text(
-                'Pengaturan',
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PengaturanScreen(),
-                  ),
-                );
-              },
-            ),
-          ],
         ),
       ),
     );

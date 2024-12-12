@@ -34,9 +34,7 @@ class Rekomendasi extends StatelessWidget {
             ),
           ),
           const SizedBox(
-              width: 10), // Added some more space between image and text
-
-          // Details section
+              width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,8 +50,6 @@ class Rekomendasi extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 5),
-
-                // Location row
                 Row(
                   children: [
                     const Icon(
@@ -71,10 +67,7 @@ class Rekomendasi extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 5),
-
-                // Rating and review section
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -110,11 +103,9 @@ class Rekomendasi extends StatelessWidget {
               ],
             ),
           ),
-
-          // Price section
           Column(
             mainAxisAlignment: MainAxisAlignment
-                .center, // Ensures the price is centered vertically
+                .center, 
             children: [
               Text.rich(
                 TextSpan(

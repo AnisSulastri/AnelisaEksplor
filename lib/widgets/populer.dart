@@ -11,12 +11,10 @@ class Popular extends StatefulWidget {
 }
 
 class _PopularState extends State<Popular> {
-  bool isFavorited = false; // Track whether the destination is favorited
-
-  // Method to toggle the favorite status
+  bool isFavorited = false; 
   void toggleFavorite() {
     setState(() {
-      isFavorited = !isFavorited; // Toggle the favorite status
+      isFavorited = !isFavorited; 
     });
   }
 
@@ -24,7 +22,6 @@ class _PopularState extends State<Popular> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Background shadow for the container
         Positioned(
           bottom: 0,
           right: 20,
@@ -42,13 +39,12 @@ class _PopularState extends State<Popular> {
             ),
           ),
         ),
-        // Main image with text overlay
         ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Container(
             height: 440,
             width: MediaQuery.of(context).size.width *
-                0.65, // Adjust width dynamically
+                0.65, 
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
@@ -58,7 +54,6 @@ class _PopularState extends State<Popular> {
             ),
             child: Stack(
               children: [
-                // Heart icon for favorites, positioned directly inside the image
                 Positioned(
                   top: 10,
                   right: 10,
@@ -66,24 +61,23 @@ class _PopularState extends State<Popular> {
                     icon: Icon(
                       isFavorited
                           ? Icons.favorite
-                          : Icons.favorite_border, // Change the icon
+                          : Icons.favorite_border, 
                       color: isFavorited
                           ? Colors.red
-                          : Colors.white, // Change color to red when favorited
+                          : Colors.white, 
                       size: 30,
                     ),
                     onPressed:
-                        toggleFavorite, // Call toggleFavorite when clicked
+                        toggleFavorite, 
                   ),
                 ),
-                // Container for the text overlay
                 Positioned(
                   bottom: 5,
                   left: 5,
                   right: 5,
                   child: Container(
                     width: double
-                        .infinity, // Make the width stretch across the container
+                        .infinity,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.6),
@@ -98,7 +92,6 @@ class _PopularState extends State<Popular> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          // Left column: Name and location
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -132,7 +125,6 @@ class _PopularState extends State<Popular> {
                               ),
                             ],
                           ),
-                          // Right column: Rating
                           Row(
                             children: [
                               Icon(

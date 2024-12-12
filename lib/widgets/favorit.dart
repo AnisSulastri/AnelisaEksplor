@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/detailwisata.dart'; // Pastikan file ini benar-benar ada
-import 'package:anelisaeksplor/models/destination_model.dart'; // Import model destinasi
+import 'package:anelisaeksplor/screens/detailwisata.dart'; 
+import 'package:anelisaeksplor/models/destination_model.dart'; 
 
 class FavoritWidget extends StatelessWidget {
   final TravelDestination destination;
@@ -25,7 +25,6 @@ class FavoritWidget extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              // Navigasi ke halaman detail wisata
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -38,7 +37,7 @@ class FavoritWidget extends StatelessWidget {
               child: Image.asset(
                 (destination.image?.isNotEmpty ?? false)
                     ? destination.image!.first
-                    : 'assets/default.jpg', // Gambar default jika null atau kosong
+                    : 'assets/default.jpg', 
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -53,7 +52,7 @@ class FavoritWidget extends StatelessWidget {
                 isFavorited ? Icons.favorite : Icons.favorite_border,
                 color: Colors.red,
               ),
-              onPressed: onFavoriteToggle, // Hapus atau toggle favorit
+              onPressed: onFavoriteToggle, 
             ),
           ),
         ],
