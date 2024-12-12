@@ -11,7 +11,8 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String _errorMessage = ""; 
+  String _errorMessage = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,6 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
-
           SafeArea(
             child: SingleChildScrollView(
               child: Padding(
@@ -44,7 +44,7 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 200), 
+                    const SizedBox(height: 200),
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
@@ -74,7 +74,6 @@ class _LoginState extends State<Login> {
                                   ),
                                 ),
                               ),
-
                             TextFormField(
                               controller: _usernameController,
                               decoration: InputDecoration(
@@ -87,8 +86,7 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15), 
-
+                            const SizedBox(height: 15),
                             TextFormField(
                               controller: _passwordController,
                               obscureText: true,
@@ -102,8 +100,7 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 20), 
-
+                            const SizedBox(height: 20),
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
@@ -126,7 +123,7 @@ class _LoginState extends State<Login> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        const Navigationscreen(), 
+                                                        const Navigationscreen(),
                                                   ),
                                                 );
                                               },
@@ -162,33 +159,12 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                             const SizedBox(height: 20),
-                            TextButton(
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AlertDialog(
-                                      title: const Text("Forgot Password"),
-                                      content: const Text(
-                                          "Masukkan email untuk reset password."),
-                                      actions: <Widget>[
-                                        TextButton(
-                                          child: const Text("OK"),
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              },
-                              child: const Text(
-                                'Forgot Password?',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 14,
-                                ),
+                            Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 14,
+                                decoration: TextDecoration.underline,
                               ),
                             ),
                           ],

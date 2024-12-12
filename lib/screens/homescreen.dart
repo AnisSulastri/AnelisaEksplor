@@ -22,53 +22,50 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Scaffold(
+    return Scaffold(
+      // Perbaiki di sini, hilangkan `child:`
+      backgroundColor: Colors.white,
+      appBar: AppBar(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          title: RichText(
-            text: TextSpan(
-              children: [
-                const TextSpan(
-                  text: 'Hi, ',
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const TextSpan(
-                  text: 'Gais',
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black),
-                ),
-                TextSpan(
-                  text: '\nExplore now',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.green[900]),
-                ),
-              ],
-            ),
+        elevation: 0,
+        title: RichText(
+          text: TextSpan(
+            children: [
+              const TextSpan(
+                text: 'Hi, ',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              const TextSpan(
+                text: 'Gais',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.black),
+              ),
+              TextSpan(
+                text: '\nExplore now',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.green[900]),
+              ),
+            ],
           ),
         ),
-        endDrawer: NavDrawer.buildDrawer(context),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildSearchBar(),
-                _buildPopularPlacesSection(),
-              ],
-            ),
+      ),
+      endDrawer: NavDrawer.buildDrawer(context),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildSearchBar(),
+              _buildPopularPlacesSection(),
+            ],
           ),
         ),
       ),
