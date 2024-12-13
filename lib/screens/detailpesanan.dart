@@ -118,7 +118,7 @@ class _DetailpesananState extends State<Detailpesanan> {
             Container(
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.brown[100],
                 border: Border.all(color: Colors.grey, width: 1),
                 borderRadius: BorderRadius.circular(10),
               ),

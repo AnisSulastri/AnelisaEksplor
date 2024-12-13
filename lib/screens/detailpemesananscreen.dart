@@ -51,7 +51,7 @@ class Detailpemesanan extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           Text(
-            "Curug Cikondang - Cianjur",
+            "Curug Cibeureum - Cianjur",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),
@@ -96,7 +96,7 @@ class Detailpemesanan extends StatelessWidget {
             children: const [
               Text("Harga Tiket", style: TextStyle(fontSize: 14)),
               SizedBox(height: 5),
-              Text("Rp 5.000",
+              Text("Rp 15.000",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
               SizedBox(height: 15),
               Text("Tiket ID", style: TextStyle(fontSize: 14)),

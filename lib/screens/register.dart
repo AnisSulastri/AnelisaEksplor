@@ -11,7 +11,7 @@ class _RegisterState extends State<Register> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  String? _errorMessage; 
+  String? _errorMessage;
 
   bool isValidEmail(String email) {
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
@@ -37,7 +37,7 @@ class _RegisterState extends State<Register> {
       return;
     }
     setState(() {
-      _errorMessage = null; 
+      _errorMessage = null;
     });
     showDialog(
       context: context,
@@ -49,8 +49,8 @@ class _RegisterState extends State<Register> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pop(context); // Close dialog
-                Navigator.pushNamed(context, '/login'); // Navigate to login
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/login');
               },
               child: const Text('OK'),
             ),
@@ -91,7 +91,7 @@ class _RegisterState extends State<Register> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 150), 
+                    const SizedBox(height: 150),
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
@@ -122,7 +122,6 @@ class _RegisterState extends State<Register> {
                                   ),
                                 ),
                               ),
-
                             TextFormField(
                               controller: _emailController,
                               decoration: InputDecoration(
@@ -135,8 +134,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15), 
-
+                            const SizedBox(height: 15),
                             TextFormField(
                               controller: _usernameController,
                               decoration: InputDecoration(
@@ -149,7 +147,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 15), 
+                            const SizedBox(height: 15),
                             TextFormField(
                               controller: _passwordController,
                               obscureText: true,
@@ -187,7 +185,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10), 
+                            const SizedBox(height: 10),
                             const Text(
                               'Or With',
                               style: TextStyle(
@@ -195,7 +193,7 @@ class _RegisterState extends State<Register> {
                                 color: Colors.black,
                               ),
                             ),
-                            const SizedBox(height: 10), 
+                            const SizedBox(height: 10),
                             IconButton(
                               onPressed: () {},
                               icon: Image.asset(
