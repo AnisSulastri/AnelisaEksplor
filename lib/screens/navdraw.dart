@@ -7,7 +7,7 @@ class NavDrawer {
   static Widget buildDrawer(BuildContext context) {
     return Drawer(
       child: Container(
-        color: gBackgroudColor,
+        color: gBackgroundColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

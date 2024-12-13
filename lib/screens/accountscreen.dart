@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/login.dart'; 
+import 'package:anelisaeksplor/screens/login.dart';
+
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
 
@@ -7,7 +8,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, 
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -24,8 +25,7 @@ class AccountScreen extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 50,
-              backgroundImage: const AssetImage(
-                  'assets/user.jpg'),
+              backgroundImage: const AssetImage('assets/user.jpg'),
             ),
             const SizedBox(height: 20),
             const Text(
@@ -65,7 +65,7 @@ class AccountScreen extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 8.0),
                           child: Text(
-                            'email',
+                            'Email',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -141,7 +141,7 @@ class MenuItem extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: titleColor ?? Colors.black, // Default warna teks hitam
+                color: titleColor ?? Colors.black,
               ),
             ),
             if (hasArrow)

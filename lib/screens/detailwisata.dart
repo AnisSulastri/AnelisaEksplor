@@ -1,11 +1,11 @@
-import 'package:anelisaeksplor/screens/detailpesanan.dart';
 import 'package:flutter/material.dart';
 import 'package:anelisaeksplor/models/destination_model.dart';
+import 'package:anelisaeksplor/screens/detailpesanan.dart';
 
 class Detailwisata extends StatelessWidget {
   final TravelDestination destination;
 
-  Detailwisata({required this.destination});
+  const Detailwisata({Key? key, required this.destination}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class Detailwisata extends StatelessWidget {
                     const SizedBox(height: 8.0),
                     Row(
                       children: [
-                        const Icon(Icons.location_on, color: Colors.redAccent),
+                        const Icon(Icons.location_on_outlined),
                         const SizedBox(width: 4.0),
                         Text(destination.location),
                       ],
@@ -70,20 +70,30 @@ class Detailwisata extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Detailpesanan(
-                                  destination: destination,
+                        SizedBox(
+                          width: 200,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Detailpesanan(
+                                    destination: destination,
+                                  ),
                                 ),
+                              );
+                            },
+                            child: const Text(
+                              "Pesan",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green[900],
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                            );
-                          },
-                          child: const Text('Pesan Sekarang'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green[200],
+                            ),
                           ),
                         ),
                         Text(

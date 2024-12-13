@@ -2,7 +2,7 @@ import 'dart:math';
 
 Random random = Random();
 const description =
-    'Wisata daerah yang menawarkan jalur pendakian yang penuh petualangan dan pemandangan yang menakjubkan. Curug-curug yang sangat indah';
+    'Curug di Cianjur merupakan destinasi wisata alam yang memukau dengan keindahan air terjun yang jernih dan suasana sejuk khas pegunungan. Dikelilingi oleh hamparan pepohonan hijau dan pemandangan yang asri, dan menawarkan pengalaman yang menenangkan sekaligus menyegarkan.';
 
 class TravelDestination {
   final int id, price, review;

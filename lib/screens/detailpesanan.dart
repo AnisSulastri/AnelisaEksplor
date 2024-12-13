@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:anelisaeksplor/models/destination_model.dart';
 import 'package:anelisaeksplor/screens/pembayaranscreen.dart';
-import 'package:flutter/material.dart';
 
 class Detailpesanan extends StatefulWidget {
   final TravelDestination destination;
-  Detailpesanan({required this.destination});
+
+  const Detailpesanan({Key? key, required this.destination}) : super(key: key);
 
   @override
   _DetailpesananState createState() => _DetailpesananState();
@@ -30,8 +31,10 @@ class _DetailpesananState extends State<Detailpesanan> {
             Navigator.pop(context);
           },
         ),
-        title: Text("Pesanan",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+        title: const Text(
+          "Pesanan",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        ),
         backgroundColor: Colors.white,
       ),
       body: Padding(
@@ -60,7 +63,7 @@ class _DetailpesananState extends State<Detailpesanan> {
                           children: [
                             Text(
                               widget.destination.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -68,7 +71,7 @@ class _DetailpesananState extends State<Detailpesanan> {
                             ),
                             Text(
                               "Rp. ${widget.destination.price}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
@@ -80,7 +83,7 @@ class _DetailpesananState extends State<Detailpesanan> {
                     ],
                   ),
                 ),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -94,24 +97,25 @@ class _DetailpesananState extends State<Detailpesanan> {
                         ),
                         child: IconButton(
                           onPressed: incrementTicket,
-                          icon: Icon(Icons.add, color: Colors.green),
+                          icon: const Icon(Icons.add, color: Colors.green),
                           padding: EdgeInsets.zero,
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
                         ticketCount.toString(),
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              color: Colors.orange[50],
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -124,30 +128,33 @@ class _DetailpesananState extends State<Detailpesanan> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Harga", style: TextStyle(fontSize: 16)),
+                      const Text("Harga", style: TextStyle(fontSize: 16)),
                       Text("Rp. ${widget.destination.price}",
-                          style: TextStyle(fontSize: 16)),
+                          style: const TextStyle(fontSize: 16)),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Jumlah Tiket", style: TextStyle(fontSize: 16)),
+                      const Text("Jumlah Tiket",
+                          style: TextStyle(fontSize: 16)),
                       Text(ticketCount.toString(),
-                          style: TextStyle(fontSize: 16)),
+                          style: const TextStyle(fontSize: 16)),
                     ],
                   ),
-                  Divider(),
+                  const Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
+                      const Text(
+                        "Total",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
                       Text(
                         "Rp. ${ticketCount * widget.destination.price}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -155,27 +162,28 @@ class _DetailpesananState extends State<Detailpesanan> {
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
             ElevatedButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Pesanan berhasil dibuat!")),
+                  const SnackBar(content: Text("Pesanan berhasil dibuat!")),
                 );
-                Future.delayed(Duration(milliseconds: 500), () {
+                Future.delayed(const Duration(milliseconds: 500), () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Pembayaranscreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const Pembayaranscreen()),
                   );
                 });
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green[600],
+                backgroundColor: Colors.green[900],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                padding: EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Buat Pesanan",
                   style: TextStyle(fontSize: 16, color: Colors.white),
