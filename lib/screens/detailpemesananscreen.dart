@@ -51,12 +51,12 @@ class Detailpemesanan extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           Text(
-            "Curug Cibeureum - Cianjur",
+            "Curug Cibeureum - Cipanas",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),
           Text(
-            "Senin, 12 Desember 2024",
+            "Minggu, 15 Desember 2024",
             style: TextStyle(fontSize: 14),
           ),
         ],
@@ -82,7 +82,7 @@ class Detailpemesanan extends StatelessWidget {
             children: const [
               Text("Jumlah Pengunjung", style: TextStyle(fontSize: 14)),
               SizedBox(height: 5),
-              Text("Dewasa: 3",
+              Text("Dewasa: 2",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
               SizedBox(height: 15),
               Text("Metode Bayar", style: TextStyle(fontSize: 14)),
@@ -101,7 +101,7 @@ class Detailpemesanan extends StatelessWidget {
               SizedBox(height: 15),
               Text("Tiket ID", style: TextStyle(fontSize: 14)),
               SizedBox(height: 5),
-              Text("CC121224",
+              Text("CCBRI122",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
             ],
           ),
@@ -125,7 +125,7 @@ class Detailpemesanan extends StatelessWidget {
           Text("Total :",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
           Text(
-            "Rp 15.000",
+            "Rp 30.000",
             style: TextStyle(
                 fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
           ),

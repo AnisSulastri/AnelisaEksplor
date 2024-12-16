@@ -20,6 +20,14 @@ class _DetailpesananState extends State<Detailpesanan> {
     });
   }
 
+  void decrementTicket() {
+    if (ticketCount > 1) {
+      setState(() {
+        ticketCount--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,29 +93,25 @@ class _DetailpesananState extends State<Detailpesanan> {
                 ),
                 const SizedBox(width: 5),
                 Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.green, width: 2),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: IconButton(
-                          onPressed: incrementTicket,
-                          icon: const Icon(Icons.add, color: Colors.green),
-                          padding: EdgeInsets.zero,
-                        ),
+                      IconButton(
+                        onPressed: incrementTicket,
+                        icon: const Icon(Icons.add, color: Colors.green),
+                        padding: EdgeInsets.zero,
                       ),
-                      const SizedBox(width: 10),
                       Text(
                         ticketCount.toString(),
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
+                      ),
+                      IconButton(
+                        onPressed: decrementTicket,
+                        icon: const Icon(Icons.remove, color: Colors.green),
+                        padding: EdgeInsets.zero,
                       ),
                     ],
                   ),

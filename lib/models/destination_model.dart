@@ -161,8 +161,8 @@ List<TravelDestination> listDestination = [
       rate: 4.8),
   TravelDestination(
       id: 12,
-      name: "rekomendasi",
-      category: 'popular',
+      name: "Cikondang",
+      category: 'rekomendasi',
       image: [
         "assets/cikondang.jpg",
       ],

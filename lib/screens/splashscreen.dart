@@ -1,6 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:anelisaeksplor/screens/login.dart'; 
-import 'package:anelisaeksplor/screens/register.dart'; 
+import 'package:anelisaeksplor/screens/login.dart';
+import 'package:anelisaeksplor/screens/register.dart';
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});
@@ -14,8 +16,31 @@ class Splashscreen extends StatelessWidget {
   }
 }
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +50,14 @@ class LoginScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/ciismun.jpg'), 
+                image: AssetImage('assets/ciismun.jpg'),
                 fit: BoxFit.cover,
+              ),
+            ),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                color: Colors.black.withOpacity(0.3),
               ),
             ),
           ),
@@ -34,7 +65,8 @@ class LoginScreen extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.black.withOpacity(0.4),
+                  Colors.black.withOpacity(0.7),
+                  Colors.black.withOpacity(0.3),
                   Colors.transparent,
                 ],
                 begin: Alignment.bottomCenter,
@@ -43,9 +75,43 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           Align(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ScaleTransition(
+                  scale: Tween(begin: 1.0, end: 1.1).animate(CurvedAnimation(
+                    parent: _controller,
+                    curve: Curves.easeInOut,
+                  )),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(0.6),
+                          blurRadius: 40,
+                          spreadRadius: 8,
+                        ),
+                      ],
+                    ),
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/logo.png',
+                        height: 150,
+                        width: 150,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -55,8 +121,10 @@ class LoginScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black,
+                        elevation: 8,
+                        shadowColor: Colors.white.withOpacity(0.6),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
+                          borderRadius: BorderRadius.circular(30),
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
@@ -64,8 +132,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const Login(), 
+                            builder: (context) => const Login(),
                           ),
                         );
                       },
@@ -86,8 +153,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const Register(), 
+                            builder: (context) => const Register(),
                           ),
                         );
                       },
@@ -95,21 +161,22 @@ class LoginScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           side: const BorderSide(color: Colors.white, width: 1),
-                          borderRadius: BorderRadius.circular(25),
+                          borderRadius: BorderRadius.circular(30),
                         ),
+                        foregroundColor: Colors.white,
                       ),
                       child: RichText(
                         text: const TextSpan(
-                          text: 'Don\'t have an account? ', 
+                          text: 'Don\'t have an account? ',
                           style: TextStyle(
-                            color: Colors.white, 
+                            color: Colors.white70,
                             fontSize: 16,
                           ),
                           children: [
                             TextSpan(
-                              text: 'Register', 
+                              text: 'Register',
                               style: TextStyle(
-                                color: Colors.blue, 
+                                color: Colors.blueAccent,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
